@@ -1,0 +1,12 @@
+development:
+  DougEnabled:
+    args:
+  Doug:
+    args:
+      - $DougEnabled
+    onDeploy:
+      - Doug.addContract("doug", $Doug)
+staging:
+  SimpleStorage:
+    args:
+      - 100
