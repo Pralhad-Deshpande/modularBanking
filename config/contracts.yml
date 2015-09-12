@@ -4,8 +4,33 @@ development:
   Doug:
     args:
       - $DougEnabled
+  BankDb:
+    args:
+      - $Doug
     onDeploy:
-      - Doug.addContract("doug", $Doug)
+      - BankDb.setDougAddress($Doug)
+  Bank:
+    args:
+      - $Doug
+      - $FundManagerEnabled
+    onDeploy:
+      - Bank.setDougAddress($Doug)
+  Permissions:
+    args:
+      - $Doug
+      - $FundManagerEnabled
+    onDeploy:
+      - Permissions.setDougAddress($Doug)
+  PermissionsDb:
+    args:
+      - $Doug
+    onDeploy:
+      - PermissionsDb.setDougAddress($Doug)
+  FundManager:
+    args:
+      - $Doug
+    onDeploy:
+      - FundManager.setDougAddress($Doug)
 staging:
   SimpleStorage:
     args:
